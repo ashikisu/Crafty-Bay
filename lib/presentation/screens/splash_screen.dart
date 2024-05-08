@@ -1,14 +1,30 @@
+import 'package:crafty_bay/presentation/screens/home_screen.dart';
+import 'package:crafty_bay/presentation/utility/asset_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState(){
+    super.initState();
+    _moveToNextScreen();
+  }
+
+    Future<void> _moveToNextScreen() async {
+      await Future.delayed(const Duration(seconds: 2));
+        Get.to(()=>const HomeScreen());
+    }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             const Spacer(),
         
-            SvgPicture.asset('assets/images/logo.svg', width: 100,),
+            SvgPicture.asset(AssetPath.appLogoSvg),
             const Spacer(),
             const CircularProgressIndicator(),
             const SizedBox(height: 16,),
