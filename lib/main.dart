@@ -3,5 +3,5 @@ import 'package:flutter/material.dart';
 
 
 void main(){
-  runApp(const CraftBay());
+  runApp(const CraftyBay());
 }
