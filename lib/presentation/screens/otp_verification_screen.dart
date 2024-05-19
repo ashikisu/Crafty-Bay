@@ -1,19 +1,16 @@
-import 'package:crafty_bay/presentation/screens/otp_verification_screen.dart';
 import 'package:crafty_bay/widget/applogo.dart';
 import 'package:flutter/material.dart';
-import 'package:crafty_bay/app.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 
-class EmailVerificationScreen extends StatefulWidget {
-  const EmailVerificationScreen({super.key});
+class OtpVerificationScreen extends StatefulWidget {
+  final String email;
+  const OtpVerificationScreen({super.key,required this.email});
 
-  @override
-  State<EmailVerificationScreen> createState() => _EmailVerificationScreenState();
+
+  State<OtpVerificationScreen> createState() => _OtpVerificationScreenState();
 }
 
-class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
+class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   final TextEditingController _emailTextEditingController=TextEditingController();
 
   @override
@@ -27,20 +24,15 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
             const SizedBox(height: 100,),
             AppLogo(),
              const SizedBox(height: 16,),
-             Text('Welcome Back',style:textTheme.titleLarge),
+             Text('Enter Otp Code',style:textTheme.titleLarge),
             const SizedBox(height: 4,),
-            Text("Enter Your Email Address",style: textTheme.headlineSmall,),
+            Text("A 4 digit OTP code has been sent to your email",style: textTheme.headlineSmall,),
             const SizedBox(height: 16,),
-            TextFormField(
-              controller: _emailTextEditingController,
-              decoration: const InputDecoration(
-                hintText: "Email",
-              ),
 
-            ),
+
+
             const SizedBox(height: 16,),
             ElevatedButton(onPressed: (){
-              Get.to(()=>OtpVerificationScreen(email:_emailTextEditingController.text));
 
             },
                 child: const Text("Next",

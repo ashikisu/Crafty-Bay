@@ -6,3 +6,7 @@ class AppColor{
 
 
 }
+
+class AppForGroundColor{
+  static const appForeGroundColor= Colors.white54;
+}
