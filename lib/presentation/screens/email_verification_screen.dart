@@ -20,33 +20,37 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   Widget build(BuildContext context) {
     final textTheme=Theme.of(context).textTheme;
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: [
-            const SizedBox(height: 100,),
-            AppLogo(),
-             const SizedBox(height: 16,),
-             Text('Welcome Back',style:textTheme.titleLarge),
-            const SizedBox(height: 4,),
-            Text("Enter Your Email Address",style: textTheme.headlineSmall,),
-            const SizedBox(height: 16,),
-            TextFormField(
-              controller: _emailTextEditingController,
-              decoration: const InputDecoration(
-                hintText: "Email",
-              ),
-
-            ),
-            const SizedBox(height: 16,),
-            ElevatedButton(onPressed: (){
-              Get.to(()=>OtpVerificationScreen(email:_emailTextEditingController.text));
-
-            },
-                child: const Text("Next",
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              children: [
+                const SizedBox(height: 100,),
+                AppLogo(),
+                 const SizedBox(height: 16,),
+                 Text('Welcome Back',style:textTheme.titleLarge),
+                const SizedBox(height: 4,),
+                Text("Enter Your Email Address",style: textTheme.headlineSmall,),
+                const SizedBox(height: 16,),
+                TextFormField(
+                  controller: _emailTextEditingController,
+                  decoration: const InputDecoration(
+                    hintText: "Email",
+                  ),
+          
                 ),
+                const SizedBox(height: 16,),
+                ElevatedButton(onPressed: (){
+                  Get.to(()=>OtpVerificationScreen(email:_emailTextEditingController.text));
+          
+                },
+                    child: const Text("Next",
+                    ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

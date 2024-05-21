@@ -17,7 +17,8 @@ class _CraftyBayState extends State<CraftyBay> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: const EmailVerificationScreen(),
+      debugShowCheckedModeBanner: false,
+      home: const SplashScreen(),
       theme: ThemeData(
         colorSchemeSeed: AppColor.primaryColor,
         progressIndicatorTheme: ProgressIndicatorThemeData(
@@ -25,6 +26,15 @@ class _CraftyBayState extends State<CraftyBay> {
         ),
         textTheme: _textTheme(),
         inputDecorationTheme: _inputDecorationTheme(),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: AppColor.primaryColor,
+          ),
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             fixedSize: const Size.fromWidth(double.maxFinite),
