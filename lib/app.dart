@@ -1,7 +1,5 @@
-import 'package:crafty_bay/presentation/screens/email_verification_screen.dart';
-import 'package:crafty_bay/presentation/screens/home_screen.dart';
-import 'package:crafty_bay/presentation/screens/otp_verification_screen.dart';
-import 'package:crafty_bay/presentation/screens/splash_screen.dart';
+import 'package:crafty_bay/controller_binder.dart';
+  import 'package:crafty_bay/presentation/screens/splash_screen.dart';
 import 'package:crafty_bay/presentation/utility/app_color.dart';
 import 'package:flutter/material.dart';
 import'package:get/get.dart';
@@ -19,6 +17,7 @@ class _CraftyBayState extends State<CraftyBay> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
+      initialBinding: ControllerBinder(),
       theme: ThemeData(
         colorSchemeSeed: AppColor.primaryColor,
         progressIndicatorTheme: ProgressIndicatorThemeData(

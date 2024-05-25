@@ -1,5 +1,6 @@
 import 'package:crafty_bay/presentation/screens/email_verification_screen.dart';
 import 'package:crafty_bay/presentation/screens/home_screen.dart';
+import 'package:crafty_bay/presentation/screens/main_bottom_nav_bar.dart';
 import 'package:crafty_bay/presentation/utility/asset_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -25,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future<void> _moveToNextScreen() async {
       await Future.delayed(const Duration(seconds: 2));
-        Get.off(()=>const HomeScreen());
+        Get.off(()=>const MainBottomNavBar());
     }
 
   @override

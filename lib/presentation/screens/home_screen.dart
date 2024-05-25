@@ -44,10 +44,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: "Popular Products",
                 onTapSeeAll: () {},
               ),
+              const SizedBox(height: 8),
+              _buildProductListView(),
+              const SizedBox(height: 8),
+              SectionHeader(
+                title: "Special ",
+                onTapSeeAll: () {},
+              ),
+              _buildProductListView(),
+              const SizedBox(height: 8),
+              SectionHeader(
+                title: "New ",
+                onTapSeeAll: () {},
+              ),
               const SizedBox(
                 height: 10,
               ),
-              ProductCard()
+              _buildProductListView(),
             ],
           ),
         ),
@@ -55,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  SizedBox _buildCategoryListView() {
+  Widget _buildCategoryListView() {
     return SizedBox(
       height: 120,
       child: ListView.separated(
@@ -63,6 +76,23 @@ class _HomeScreenState extends State<HomeScreen> {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return const CategoryItems();
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return const SizedBox(
+            width: 8,
+          );
+        },
+      ),
+    );
+  }
+  Widget _buildProductListView() {
+    return SizedBox(
+      height: 210,
+      child: ListView.separated(
+        itemCount: 8,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return const ProductCard();
         },
         separatorBuilder: (BuildContext context, int index) {
           return const SizedBox(
