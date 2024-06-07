@@ -12,5 +12,9 @@ class MainBottomNavBarController extends GetxController{
 
   }
 
+  void backToHome(){
+      changedIndex(0);
+}
+
 
 }

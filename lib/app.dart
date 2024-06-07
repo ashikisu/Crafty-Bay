@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import'package:get/get.dart';
 
 class CraftyBay extends StatefulWidget {
-  const CraftyBay({super.key});
+   CraftyBay({super.key});
+  static GlobalKey<NavigatorState> navigationKey=GlobalKey<NavigatorState>();
 
   @override
   State<CraftyBay> createState() => _CraftyBayState();
@@ -15,6 +16,7 @@ class _CraftyBayState extends State<CraftyBay> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      navigatorKey: CraftyBay.navigationKey,
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
       initialBinding: ControllerBinder(),
