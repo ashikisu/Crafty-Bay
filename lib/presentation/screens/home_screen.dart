@@ -1,8 +1,10 @@
+import 'package:crafty_bay/presentation/state_holders/home_slider_controller.dart';
 import 'package:crafty_bay/presentation/utility/app_color.dart';
 import 'package:crafty_bay/presentation/utility/asset_path.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../../widget/app_bar_icon_button.dart';
 import '../../widget/category_items.dart';
@@ -20,6 +22,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchTexEditingController =
       TextEditingController();
+  final HomeSliderController _homeSliderController=Get.find<HomeSliderController>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +36,11 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               _buildSearchBoxTextField(),
               const SizedBox(height: 16),
-              const HomeCarouselSlider(),
+              GetBuilder(
+                builder: (sliderController) {
+                  return  HomeCarouselSlider(sliderDataList: sliderController?.sliderDataList);
+                }
+              ),
               const SizedBox(height: 16),
               SectionHeader(
                 title: "All Category",
